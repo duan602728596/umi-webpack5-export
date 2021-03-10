@@ -1,0 +1,24 @@
+{
+  "name": "@bbkkbkk/umi-webpack5-export",
+  "version": "5.0.0",
+  "main": "index.js",
+  "description": "umi webpack5",
+  "license": "MIT",
+  "homepage": "https://github.com/duan602728596/umi-webpack5-export",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:duan602728596/umi-webpack5-export.git"
+  },
+  "scripts": {
+    "build": "rimraf lib && node scripts/build.js",
+    "test": "jest test"
+  },
+  "devDependencies": {
+    "@umijs/deps": "^0.2.32",
+    "fs-extra": "^9.1.0",
+    "glob": "^7.1.6",
+    "jest": "^26.6.3",
+    "rimraf": "^3.0.2",
+    "webpack": "^5.24.4"
+  }
+}
