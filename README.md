@@ -22,5 +22,5 @@ import { __WEBPACK__ as webpack } from 'webpack';
 
 ## 编译
 
-`npm run build` 编译文件
-`npm run test` 测试
+* `npm run build` 编译文件
+* `npm run test` 测试
