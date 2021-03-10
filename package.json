@@ -1,6 +1,6 @@
 {
   "name": "@bbkkbkk/umi-webpack5-export",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "main": "index.js",
   "description": "umi webpack5",
   "license": "MIT",
