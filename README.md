@@ -24,7 +24,13 @@
 ```javascript
 import moduleAlias from 'module-alias';
 
-moduleAlias.addAlias('webpack', '@bbkkbkk/umi-webpack5-export');
+moduleAlias.addAlias('webpack', function(fromPath, request, alias) {
+  if (/@umijs[\\/]/.test(fromPath)) {
+    return 'webpack';
+  }
+
+  return '@bbkkbkk/umi-webpack5-export';
+});
 ```
 
 导入webpack。
