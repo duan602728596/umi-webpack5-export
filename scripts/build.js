@@ -5,8 +5,8 @@ const libDir = path.join(__dirname, '../lib'); // 输出的lib目录
 
 async function childrenDir(childrenDir, plugins) {
   for (const pluginName of plugins) {
-    fse.outputFile(path.join(libDir, childrenDir, `${ pluginName }.js`), `const { __WEBPACK__ } = require('../../index');
-module.exports = __WEBPACK__.${ childrenDir }.${ pluginName };`);
+    fse.outputFile(path.join(libDir, childrenDir, `${ pluginName }.js`), `const webpack = require('../../index');
+module.exports = webpack.${ childrenDir }.${ pluginName };`);
   }
 }
 
@@ -40,8 +40,8 @@ async function build() {
   ];
 
   for (const pluginName of libPlugin) {
-    fse.outputFile(path.join(libDir, `${ pluginName }.js`), `const { __WEBPACK__ } = require('../index');
-module.exports = __WEBPACK__.${ pluginName };`);
+    fse.outputFile(path.join(libDir, `${ pluginName }.js`), `const webpack = require('../index');
+module.exports = webpack.${ pluginName };`);
   }
 
   await Promise.all([
@@ -49,6 +49,17 @@ module.exports = __WEBPACK__.${ pluginName };`);
       'EnableChunkLoadingPlugin',
       'JavascriptModulesPlugin',
       'JavascriptParser'
+    ]),
+    childrenDir('optimize', [
+      'AggressiveMergingPlugin',
+      'AggressiveSplittingPlugin',
+      'LimitChunkCountPlugin',
+      'MinChunkSizePlugin',
+      'ModuleConcatenationPlugin',
+      'RealContentHashPlugin',
+      'RuntimeChunkPlugin',
+      'SideEffectsFlagPlugin',
+      'SplitChunksPlugin'
     ]),
     childrenDir('web', [
       'FetchCompileAsyncWasmPlugin',
@@ -75,6 +86,11 @@ module.exports = __WEBPACK__.${ pluginName };`);
     childrenDir('library', [
       'AbstractLibraryPlugin',
       'EnableLibraryPlugin'
+    ]),
+    childrenDir('container', [
+      'ContainerPlugin',
+      'ContainerReferencePlugin',
+      'ModuleFederationPlugin'
     ]),
     childrenDir('container', [
       'ContainerPlugin',
