@@ -1,6 +1,6 @@
 {
   "name": "@bbkkbkk/umi-webpack5-export",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "main": "index.js",
   "description": "解决umi@3.4 webpack5模式下多个webpack的冲突问题。",
   "license": "MIT",
