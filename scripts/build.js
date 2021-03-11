@@ -6,7 +6,7 @@ const libDir = path.join(__dirname, '../lib'); // 输出的lib目录
 async function childrenDir(childrenDir, plugins) {
   for (const pluginName of plugins) {
     fse.outputFile(path.join(libDir, childrenDir, `${ pluginName }.js`), `const { __WEBPACK__ } = require('../../index');
-module.exports = __WEBPACK__.${ childrenDir }.${ pluginName }`);
+module.exports = __WEBPACK__.${ childrenDir }.${ pluginName };`);
   }
 }
 
@@ -35,12 +35,13 @@ async function build() {
     'LibraryTemplatePlugin',
     'LoaderOptionsPlugin',
     'LoaderTargetPlugin',
+    'SingleEntryPlugin',
     'WatchIgnorePlugin'
   ];
 
   for (const pluginName of libPlugin) {
     fse.outputFile(path.join(libDir, `${ pluginName }.js`), `const { __WEBPACK__ } = require('../index');
-module.exports = __WEBPACK__.${ pluginName }`);
+module.exports = __WEBPACK__.${ pluginName };`);
   }
 
   await Promise.all([
