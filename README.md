@@ -1,7 +1,7 @@
 # umi-webpack5-export
 
 有些插件和loader引入了webpack的模块（比如monaco-editor-webpack-plugin、worker-loader），   
-会有The 'compilation' argument must be an instance of Compilation错误。   
+会有`The 'compilation' argument must be an instance of Compilation`错误。   
 这个错误是由存在多个webpack引起的。
 
 这个库导出umi@3.4 webpack5模式下@umijs/deps的webpack模块，来替代原来的webpack。   
@@ -17,6 +17,14 @@
     "webpack": "npm:@bbkkbkk/umi-webpack5-export"
   }
 }
+```
+
+或使用`module-alias`
+
+```javascript
+import moduleAlias from 'module-alias';
+
+moduleAlias.addAlias('webpack', '@bbkkbkk/umi-webpack5-export');
 ```
 
 导入webpack。
