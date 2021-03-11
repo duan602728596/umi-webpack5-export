@@ -30,9 +30,15 @@ moduleAlias.addAlias('webpack', '@bbkkbkk/umi-webpack5-export');
 导入webpack。
 
 ```javascript
-import webpack5, { webpack, isWebpack5, bundle } from 'webpack';
+import webpack from 'webpack';
 // or
-const webpack = require('webpack').default;
+const webpack = require('webpack');
+```
+
+导入@umi/deps的bundle。
+
+```javascript
+import { bundle } from '@bbkkbkk/umi-webpack5-export/bundle';
 ```
 
 ## 编译
