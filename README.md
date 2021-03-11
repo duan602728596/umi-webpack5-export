@@ -22,7 +22,9 @@
 导入webpack。
 
 ```javascript
-import { __WEBPACK__ as webpack } from 'webpack';
+import webpack5, { webpack, isWebpack5, bundle } from 'webpack';
+// or
+const webpack = require('webpack').default;
 ```
 
 ## 编译
