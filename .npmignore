@@ -10,8 +10,11 @@ yarn-error.log
 # ignore
 .npmignore
 .gitignore
+.eslintignore
 
 # packages
+.editorconfig
+.eslintrc.js
 src
 test
 tests
