@@ -5,7 +5,7 @@ const libDir = path.join(__dirname, '../lib'); // 输出的lib目录
 
 async function childrenDir(childrenDir, plugins) {
   for (const pluginName of plugins) {
-    fse.outputFile(path.join(libDir, childrenDir, `${ pluginName }.js`), `const webpack = require('../../index');
+    await fse.outputFile(path.join(libDir, childrenDir, `${ pluginName }.js`), `const webpack = require('../../index');
 module.exports = webpack.${ childrenDir }.${ pluginName };`);
   }
 }
@@ -70,7 +70,7 @@ async function build() {
   ];
 
   for (const pluginName of libPlugin) {
-    fse.outputFile(path.join(libDir, `${ pluginName }.js`), `const webpack = require('../index');
+    await fse.outputFile(path.join(libDir, `${ pluginName }.js`), `const webpack = require('../index');
 module.exports = webpack.${ pluginName };`);
   }
 
