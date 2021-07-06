@@ -4,7 +4,7 @@
 会有`The 'compilation' argument must be an instance of Compilation`错误。   
 这个错误是由存在多个webpack引起的。
 
-这个库导出umi@3.4 webpack5模式下@umijs/deps的webpack模块，来替代原来的webpack。   
+这个库导出umi@3.4 webpack5模式下@umijs/deps的webpack模块，重定向到`webpack`模块。  
 用于解决使用webpack插件引起的多个webpack冲突的问题。
 
 ## 使用
@@ -19,9 +19,10 @@
 }
 ```
 
-或使用`module-alias`
+或者使用`module-alias`，在config.js文件头部加载如下`alias.js`文件。
 
 ```javascript
+// alias.js
 import moduleAlias from 'module-alias';
 
 moduleAlias.addAlias('webpack', function(fromPath, request, alias) {
