@@ -30,6 +30,16 @@ moduleAlias.addAlias('webpack', function(fromPath, request, alias) {
     return 'webpack';
   }
 
+  // umi的某个版本在使用worker-loader时会提示错误，添加如下代码
+  // 没有错误的话不要加这个
+  if (/worker-loader/.test(fromPath)) {
+    if (/ExternalsPlugin|FetchCompileWasmPlugin|FetchCompileAsyncWasmPlugin/i.test(request)) {
+      return '@bbkkbkk/umi-webpack5-export';
+    }
+
+    return 'webpack';
+  }
+
   return '@bbkkbkk/umi-webpack5-export';
 });
 ```
